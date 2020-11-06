@@ -94,7 +94,9 @@ totem {
 {% for interface in corosync_interfaces %}
 	interface {
 		ringnumber: {{ ringnumber }}
+    {% if interfaces.bindnetaddr is defined %}
 		bindnetaddr: {{ interface.bindnetaddr }}
+    {% endif %}
     {% if interface.mcastaddr is defined and corosync_transport != 'udpu' %}
 		mcastaddr: {{ interface.mcastaddr }}
     {% endif %}

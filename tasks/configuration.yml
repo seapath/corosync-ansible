@@ -7,8 +7,9 @@
   notify: restart corosync
 
 - name: Making sure that Corosync service is started
-  service:
-    name=corosync
-    state=started
+  ansible.builtin.systemd:
+    name: corosync
+    state: restarted
+    enabled: yes
 
 - meta: flush_handlers

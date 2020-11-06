@@ -28,7 +28,6 @@
 - name: Fetching /etc/corosync/authkey
   slurp:
     src: '/etc/corosync/authkey'
-    run_once: true
   register: tmp_authkey
   when: inventory_hostname == play_hosts[0]
 
@@ -38,4 +37,4 @@
     dest: /etc/corosync/authkey
     mode: 0400
   notify: restart corosync
-  when: inventory_hostname not play_hosts[0]
+  when: inventory_hostname != play_hosts[0]

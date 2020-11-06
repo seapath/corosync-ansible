@@ -1,29 +1,5 @@
 ---
 # file: roles/corosync/main.yml
-- include: backport.yml
-  tags: [ corosync, corosync-backport ]
-  when: ansible_distribution_release == 'jessie' and
-        corosync_debian_backports is defined and
-        corosync_debian_backports
-
-- include: install.yml
-  tags: [ corosync, corosync-install ]
-
-- include: haveged.yml
-  tags: [ corosync, corosync-haveged ]
-  when: corosync_haveged is defined and
-        corosync_haveged
-
-- include: firewall.yml
-  tags: [ corosync, corosync-firewall ]
-  when: corosync_firewalld is defined and
-        corosync_firewalld
-
-- include: selinux.yml
-  tags: [ corosync, corosync-selinux ]
-  when: corosync_selinux is defined and
-        corosync_selinux
-
 - include: auth.yml
   tags: [ corosync, corosync-auth ]
 
