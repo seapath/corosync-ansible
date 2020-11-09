@@ -33,7 +33,7 @@
 
 - name: Synchronizing /etc/corosync/authkey everywhere
   copy:
-    content: "{{ tmp_authkey['content'] | b64decode  }}"
+    content: "{{ hostvars[play_hosts[0]].tmp_authkey['content'] | b64decode  }}"
     dest: /etc/corosync/authkey
     mode: 0400
   notify: restart corosync
