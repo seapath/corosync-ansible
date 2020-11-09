@@ -123,7 +123,7 @@ nodelist {
 		ring{{ ringnumber }}_addr: {{ node }}
 {% set ringnumber = ringnumber + 1 %}
     {% endfor %}
-		nodeid: {{ nodeid }}
+		nodeid: {{ loop.index }}
 	}
 {% set nodeid = nodeid + 1 %}
 {% set hostid = hostid + 1 %}
