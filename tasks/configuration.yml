@@ -9,7 +9,7 @@
 - name: Making sure that Corosync service is started
   ansible.builtin.systemd:
     name: corosync
-    state: restarted
+    state: started
     enabled: yes
 
 - meta: flush_handlers
