@@ -1,4 +1,8 @@
 # {{ ansible_managed }}
+system {
+  sched_rr: no
+  priority: -20
+}
 totem {
 	version: 2
 {% if corosync_transport is defined and corosync_transport == 'knet' %} 
