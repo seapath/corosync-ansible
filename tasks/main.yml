@@ -1,7 +1,7 @@
 ---
 # file: roles/corosync/main.yml
-- include: auth.yml
+- import_tasks: auth.yml
   tags: [ corosync, corosync-auth ]
 
-- include: configuration.yml
+- import_tasks: configuration.yml
   tags: [ corosync, corosync-config ]
