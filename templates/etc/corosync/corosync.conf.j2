@@ -142,7 +142,7 @@ quorum {
 {% if corosync_expected_votes is defined and corosync_transport != 'udpu'%}
         expected_votes: {{ corosync_expected_votes }}
 {% endif %}
-{% if corosync_qdevice is defined %}}
+{% if corosync_qdevice is defined %}
         device {
             votes: 1
             model: net
