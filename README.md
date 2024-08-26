@@ -151,6 +151,25 @@ corosync_interfaces:
   - bindnetaddr: 192.168.56.0
     mcastport: 5405
 ```
+### Unicast (1 ring) with qDevice
+The following example will create a Corosync cluster using `unicast` and a qDevice with one ring
+```
+---
+corosync_firewalld: true
+corosync_selinux: true
+corosync_haveged: true
+corosync_force_regenerate_authkey: false
+corosync_debian_backports: true
+corosync_node_list:
+  - ctrl01
+  - ctrl02
+corosync_qdevice: ctrl03
+corosync_transport: 'udpu'
+
+corosync_interfaces:
+  - bindnetaddr: 192.168.56.0
+    mcastport: 5405
+```
 The following example will create a Corosync cluster using ``unicast`` with two rings.
 ### Unicast (2 rings)
 ```
